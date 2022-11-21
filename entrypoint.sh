@@ -2,6 +2,9 @@
 
 set -ex
 
+# DEBUG STEP - REMOVE THIS
+printenv
+
 if [ -n "$INPUT_PATH" ]; then
   # Allow user to change directories in which to run Fly commands.
   cd "$INPUT_PATH" || exit
