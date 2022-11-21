@@ -46,7 +46,7 @@ fi
 
 # Attach postgres cluster to the app if specified.
 if [ -n "$INPUT_POSTGRES" ]; then
-  flyctl postgres attach --postgres-app "$INPUT_POSTGRES" || true
+  flyctl postgres attach "$INPUT_POSTGRES" || true
 fi
 
 echo "Contents of config $config file: " && cat "$config"
