@@ -38,6 +38,7 @@ fi
 if ! flyctl status --app "$app"; then
   # Backup the original config file since 'flyctl launch' messes up the [build.args] section
   cp "$config" "$config.bak"
+  sed -i -e "s/staging/pr-$PR_NUMBER/g" fly.toml
   flyctl launch --no-deploy --copy-config --name "$app" --region "$region" --org "$org" --dockerfile Dockerfile
 
   # Attach postgres cluster to the app if specified.
